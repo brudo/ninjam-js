@@ -16,7 +16,13 @@ module.exports = {
       exclude: /(node_modules|bower_components)/,
       loader: 'babel', // 'babel-loader' is also a legal name to reference
       query: {
-        presets: ['react', 'es2015']
+        presets: [
+          [
+            "@babel/preset-env", {
+            "targets": "defaults"
+          }],
+          "@babel/preset-react"
+        ]
       }
     }, {
       test: /\.css$/,
