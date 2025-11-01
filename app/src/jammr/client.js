@@ -1,6 +1,6 @@
 import EventEmitter from 'events';
 import { SHA1 } from 'crypto-js';
-import uuid from 'node-uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 // Use node modules imported at runtime (without global, the modules will be resolved by webpack and use XHR)
 const querystring = (typeof global !== 'undefined' && typeof global.require !== 'undefined' && global.require('querystring')) || null;
@@ -15,7 +15,7 @@ const API_HOST = 'jammr.net';
 export default class JammrClient {
   constructor() {
     // Public properties
-    this.hexToken = SHA1(uuid.v4()).toString();
+    this.hexToken = SHA1(uuidv4()).toString();
     this.authenticated = false;
     this.supported = !!(typeof global.require !== 'undefined' && global.require('https'));
 

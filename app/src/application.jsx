@@ -1,5 +1,6 @@
 import React from 'react';
-import { Router, Route, Link } from 'react-router'
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 import { Client as NinjamClient } from './ninjam';
 import DisconnectedModal from './modals/disconnected-modal.jsx';
 
@@ -11,7 +12,7 @@ const MIDI_STOP = new Uint8Array([0xfc]);
 /**
  * Top-level application component
  */
-export default class Application extends React.Component {
+class Application extends React.Component {
   constructor(props) {
     super(props);
 
@@ -65,7 +66,7 @@ export default class Application extends React.Component {
       this.setState({ disconnectReason: reason });
     }
 
-    this.context.router.push('/');
+    this.props.history.push('/');
   }
 
   /**
@@ -93,7 +94,6 @@ export default class Application extends React.Component {
 
   getChildContext() {
     return {
-      router: this.context.router,
       ninjam: this.ninjam,
     };
   }
@@ -103,7 +103,7 @@ export default class Application extends React.Component {
    */
   mockJam() {
     this.ninjam.mockJam();
-    this.context.router.push('/jam');
+    this.props.history.push('/jam');
   }
 
   render() {
@@ -115,12 +115,10 @@ export default class Application extends React.Component {
     );
   }
 }
-// Context gained from parent
-Application.contextTypes = {
-  router: React.PropTypes.object
-};
+
 // Context made available to children
 Application.childContextTypes = {
-  router: React.PropTypes.object,
-  ninjam: React.PropTypes.object,
+  ninjam: PropTypes.object,
 };
+
+export default withRouter(Application);
