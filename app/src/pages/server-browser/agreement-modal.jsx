@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Modal, Button, Well } from 'react-bootstrap';
+import { Modal, Button, Card } from 'react-bootstrap';
 
 export default class AgreementModal extends React.Component {
   constructor(props) {
@@ -31,7 +31,9 @@ export default class AgreementModal extends React.Component {
         </Modal.Header>
         <Modal.Body>
           <p>To connect to this server, you must accept the following terms:</p>
-          <Well>{terms}</Well>
+          <Card bg="light">
+            <Card.Body>{terms}</Card.Body>
+          </Card>
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={this.onReject}>Cancel</Button>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListGroup, ListGroupItem, Label } from 'react-bootstrap';
+import { ListGroup, ListGroupItem, Badge } from 'react-bootstrap';
 
 /**
  * Shows the list of jammr servers once authed.
@@ -47,10 +47,10 @@ export default class JammrServerList extends React.Component {
         {this.state.servers.map((server, i) => {
           let users = (server.users) ? server.users.join(", ") : "";
           return <ListGroupItem header={server.server} active={i===this.state.selected} onClick={e => {this.select(i)}} key={i}>
-            <Label>{server.is_public ? 'Public' : 'Private'}</Label>
-            <Label>{server.status}</Label>
-            <Label>{server.topic}</Label>
-            <Label>{users}</Label>
+            <Badge bg={server.is_public ? "success" : "warning"} className="me-1">{server.is_public ? 'Public' : 'Private'}</Badge>
+            <Badge bg="secondary" className="me-1">{server.status}</Badge>
+            <Badge bg="primary" className="me-1">{server.topic}</Badge>
+            <Badge bg="light" text="dark">{users}</Badge>
           </ListGroupItem>
         })}
       </ListGroup>

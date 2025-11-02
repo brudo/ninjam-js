@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Navbar, Nav, NavDropdown, NavItem, ButtonToolbar, ButtonGroup, Button, DropdownButton, Panel } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, NavItem, ButtonToolbar, ButtonGroup, Button, DropdownButton } from 'react-bootstrap';
 import Chat from './chat.jsx';
 import LocalChannels from './local-channels.jsx';
 import RemoteUsers from './users.jsx';

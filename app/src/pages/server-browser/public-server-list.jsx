@@ -1,6 +1,6 @@
 import React from 'react';
 import xhr from 'xhr';
-import { ListGroup, ListGroupItem, Label } from 'react-bootstrap';
+import { ListGroup, ListGroupItem, Badge } from 'react-bootstrap';
 import LoginModal from './login-modal.jsx';
 import storage from '../../storage/index.js';
 
@@ -125,9 +125,9 @@ export default class PublicServerList extends React.Component {
           {this.state.servers.map((server, i) => {
             let users = (server.users) ? server.users.join(", ") : "";
             return <ListGroupItem header={server.host} active={i===this.state.selected} onClick={e => {this.select(i)}} key={i}>
-              <Label>{server.status}</Label>
-              <Label>{server.userCount}</Label>
-              <Label>{users}</Label>
+              <Badge bg="secondary" className="me-1">{server.status}</Badge>
+              <Badge bg="info" className="me-1">{server.userCount}</Badge>
+              <Badge bg="light" text="dark">{users}</Badge>
             </ListGroupItem>
           })}
         </ListGroup>
