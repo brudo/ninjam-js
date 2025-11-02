@@ -68,7 +68,7 @@ export default class Metronome extends React.Component {
           <div>{this.state.bpm} <span>BPM</span></div>
           <div>{this.state.bpi} <span>BPI</span></div>
         </div>
-        <ProgressBar className="metronome" bsStyle="success" now={this.state.beat + 1} max={this.state.bpi} />
+        <ProgressBar className="metronome" variant="success" now={this.state.beat + 1} max={this.state.bpi} />
         <BpmBpiModal show={this.state.modalVisible} bpm={this.state.bpm} bpi={this.state.bpi} onResponse={this.onVoteModalSubmit} />
       </div>
     );

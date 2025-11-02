@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Modal, Button, Form, FormGroup, Col, FormControl, HelpBlock, ControlLabel } from 'react-bootstrap';
+import { Modal, Button, Form, FormGroup, Col, FormControl, FormLabel, FormText } from 'react-bootstrap';
 import storage from '../../storage/index.js';
 
 export default class BpmBpiModal extends React.Component {
@@ -36,24 +36,28 @@ export default class BpmBpiModal extends React.Component {
           <p>Vote for a new tempo or interval length using the form below:</p>
           <Form horizontal onSubmit={this.onSubmit}>
             <FormGroup controlId="bpm">
-              <Col componentClass={ControlLabel} sm={2}>Tempo (BPM)</Col>
+              <Col sm={2}>
+                <FormLabel>Tempo (BPM)</FormLabel>
+              </Col>
               <Col sm={10}>
                 <FormControl type="number" required value={this.state.bpm} onChange={(e) => {this.setState({bpm: e.target.value})}} />
-                <HelpBlock>Tempo, in beats per minute.</HelpBlock>
+                <FormText muted>Tempo, in beats per minute.</FormText>
               </Col>
             </FormGroup>
             <FormGroup controlId="bpi">
-              <Col componentClass={ControlLabel} sm={2}>Interval Length (BPI)</Col>
+              <Col sm={2}>
+                <FormLabel>Interval Length (BPI)</FormLabel>
+              </Col>
               <Col sm={10}>
                 <FormControl type="number" required value={this.state.bpi} onChange={(e) => {this.setState({bpi: e.target.value})}} />
-                <HelpBlock>The number of beats per interval. Remember, your jam's chord progression needs to fit within this amount of beats!</HelpBlock>
+                <FormText muted>The number of beats per interval. Remember, your jam's chord progression needs to fit within this amount of beats!</FormText>
               </Col>
             </FormGroup>
           </Form>
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={this.onCancel}>Cancel</Button>
-          <Button onClick={this.onSubmit} bsStyle="primary" disabled={unchanged}>Vote</Button>
+          <Button onClick={this.onSubmit} variant="primary" disabled={unchanged}>Vote</Button>
         </Modal.Footer>
       </Modal>
     );

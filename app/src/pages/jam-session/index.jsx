@@ -1,5 +1,6 @@
 import React from 'react';
-import { Navbar, Nav, NavDropdown, MenuItem, NavItem, ButtonToolbar, ButtonGroup, Button, DropdownButton, Panel } from 'react-bootstrap';
+import PropTypes from 'prop-types';
+import { Navbar, Nav, NavDropdown, NavItem, ButtonToolbar, ButtonGroup, Button, DropdownButton, Panel } from 'react-bootstrap';
 import Chat from './chat.jsx';
 import LocalChannels from './local-channels.jsx';
 import RemoteUsers from './users.jsx';
@@ -46,14 +47,14 @@ class JamSession extends React.Component {
           <Nav pullRight>
             <ButtonToolbar>
               <ButtonGroup>
-                <Button bsStyle={this.context.ninjam.metronomeMute ? "danger" : "default"} onClick={() => {this.context.ninjam.toggleMetronomeMute(); this.forceUpdate();}}><img src="img/ic_metronome_black.svg" /></Button>
-                <Button bsStyle={this.context.ninjam.microphoneInputMute ? "danger" : "default"} onClick={() => {this.context.ninjam.toggleMicrophoneInputMute(); this.forceUpdate();}}><img src="img/ic_mic_mute_black.svg" /></Button>
-                <Button bsStyle={this.context.ninjam.masterMute ? "danger" : "default"} onClick={() => {this.context.ninjam.toggleMasterMute(); this.forceUpdate();}}><img src="img/ic_speaker_mute_black.svg" width="16" /></Button>
+                <Button variant={this.context.ninjam.metronomeMute ? "danger" : "secondary"} onClick={() => {this.context.ninjam.toggleMetronomeMute(); this.forceUpdate();}}><img src="img/ic_metronome_black.svg" /></Button>
+                <Button variant={this.context.ninjam.microphoneInputMute ? "danger" : "secondary"} onClick={() => {this.context.ninjam.toggleMicrophoneInputMute(); this.forceUpdate();}}><img src="img/ic_mic_mute_black.svg" /></Button>
+                <Button variant={this.context.ninjam.masterMute ? "danger" : "secondary"} onClick={() => {this.context.ninjam.toggleMasterMute(); this.forceUpdate();}}><img src="img/ic_speaker_mute_black.svg" width="16" /></Button>
               </ButtonGroup>
               <ButtonGroup>
                 <DropdownButton title={<img src="img/ic_more_black.svg" />} id="bg-nested-dropdown">
-                  {/* <MenuItem eventKey="1">Toggle Debug Panel</MenuItem> */}
-                  <MenuItem eventKey="2" onClick={this.disconnect}>Leave Server</MenuItem>
+                  {/* <Dropdown.Item eventKey="1">Toggle Debug Panel</Dropdown.Item> */}
+                  <Dropdown.Item eventKey="2" onClick={this.disconnect}>Leave Server</Dropdown.Item>
                 </DropdownButton>
               </ButtonGroup>
             </ButtonToolbar>
@@ -73,12 +74,12 @@ class JamSession extends React.Component {
 }
 // Context gained from parent
 JamSession.contextTypes = {
-  router: React.PropTypes.object,
-  ninjam: React.PropTypes.object,
+  router: PropTypes.object,
+  ninjam: PropTypes.object,
 };
 // Context made available to children
 JamSession.childContextTypes = {
-  router: React.PropTypes.object,
-  ninjam: React.PropTypes.object,
+  router: PropTypes.object,
+  ninjam: PropTypes.object,
 };
 export default JamSession;

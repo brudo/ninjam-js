@@ -1,5 +1,6 @@
 import React from 'react';
-import { Navbar, Nav, NavDropdown, MenuItem, NavItem, ButtonToolbar, ButtonGroup, Button, DropdownButton } from 'react-bootstrap';
+import PropTypes from 'prop-types';
+import { Navbar, Nav, NavDropdown, NavItem, ButtonToolbar, ButtonGroup, Button, DropdownButton } from 'react-bootstrap';
 import Message from './message.jsx';
 
 class Chat extends React.Component {
@@ -148,7 +149,7 @@ class Chat extends React.Component {
 }
 // Context gained from parent
 Chat.contextTypes = {
-  router: React.PropTypes.object,
-  ninjam: React.PropTypes.object,
+  router: PropTypes.object,
+  ninjam: PropTypes.object,
 };
 export default Chat;

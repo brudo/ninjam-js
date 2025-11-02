@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, FormGroup, FormControl, Button, Col, ControlLabel, Tooltip } from 'react-bootstrap';
+import { Form, FormGroup, FormControl, Button, Col, FormLabel, Tooltip } from 'react-bootstrap';
 import storage from '../../../storage/index.js';
 
 export default class JammrLoginForm extends React.Component {
@@ -51,14 +51,18 @@ export default class JammrLoginForm extends React.Component {
         <br/>
         <Form horizontal onSubmit={this.onSubmit}>
           <FormGroup controlId="username">
-            <Col componentClass={ControlLabel} sm={2}>Username</Col>
+            <Col sm={2}>
+              <FormLabel>Username</FormLabel>
+            </Col>
             <Col sm={10}>
               <FormControl type="text" placeholder="Username" required value={this.state.username} onChange={(e) => {this.setState({username: e.target.value})}} />
             </Col>
           </FormGroup>
 
           <FormGroup controlId="password">
-            <Col componentClass={ControlLabel} sm={2}>Password</Col>
+            <Col sm={2}>
+              <FormLabel>Password</FormLabel>
+            </Col>
             <Col sm={10}>
               <FormControl type="password" placeholder="Password" onChange={(e) => {this.setState({password: e.target.value})}} />
             </Col>
@@ -66,7 +70,7 @@ export default class JammrLoginForm extends React.Component {
 
           <FormGroup>
             <Col smOffset={2} sm={10}>
-              <Button type="submit" bsStyle="primary" disabled={!(this.state.password && this.state.username) || this.state.busy}>Connect</Button>
+              <Button type="submit" variant="primary" disabled={!(this.state.password && this.state.username) || this.state.busy}>Connect</Button>
             </Col>
           </FormGroup>
         </Form>

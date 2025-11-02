@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button, ButtonGroup, ProgressBar } from 'react-bootstrap';
 import VolumeIndicator from './volume-indicator.jsx';
 import UserPanel from './user-panel.jsx';
@@ -49,7 +50,7 @@ class RemoteUsers extends React.Component {
               let channel = user.channels[key];
               return <div className="channel" key={key}>
                 <ButtonGroup>
-                  <Button onClick={() => {channel.toggleMute(); this.forceUpdate();}} bsStyle={channel.localMute ? "primary" : "default"}>M</Button>
+                  <Button onClick={() => {channel.toggleMute(); this.forceUpdate();}} variant={channel.localMute ? "primary" : "secondary"}>M</Button>
                   <Button>S</Button>
                   <Button disabled><VolumeIndicator channel={channel} /></Button>
                   <Button disabled>{channel.name}</Button>
@@ -65,7 +66,7 @@ class RemoteUsers extends React.Component {
 }
 // Context gained from parent
 RemoteUsers.contextTypes = {
-  router: React.PropTypes.object,
-  ninjam: React.PropTypes.object,
+  router: PropTypes.object,
+  ninjam: PropTypes.object,
 };
 export default RemoteUsers;

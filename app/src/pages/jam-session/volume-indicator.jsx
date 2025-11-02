@@ -17,7 +17,7 @@ export default class VolumeIndicator extends React.Component {
   }
   render() {
     return (
-      <ProgressBar bsStyle="danger" now={this.props.channel.maxDecibelValue} />
+      <ProgressBar variant="danger" now={this.props.channel.maxDecibelValue} />
     );
   }
 }

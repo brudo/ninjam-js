@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, FormGroup, FormControl, Button, Col, ControlLabel, Tooltip } from 'react-bootstrap';
+import { Form, FormGroup, FormControl, Button, Col, FormLabel, Tooltip } from 'react-bootstrap';
 import JammrClient from '../../../jammr/client.js';
 import storage from '../../../storage/index.js';
 import JammrLoginForm from './login-form.jsx';

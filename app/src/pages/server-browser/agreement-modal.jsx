@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Modal, Button, Well } from 'react-bootstrap';
 
 export default class AgreementModal extends React.Component {
@@ -34,13 +35,13 @@ export default class AgreementModal extends React.Component {
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={this.onReject}>Cancel</Button>
-          <Button onClick={this.onAccept} bsStyle="primary" id="agreement-accept-btn">Accept</Button>
+          <Button onClick={this.onAccept} variant="primary" id="agreement-accept-btn">Accept</Button>
         </Modal.Footer>
       </Modal>
     );
   }
 }
 AgreementModal.propTypes = {
-  terms: React.PropTypes.string.isRequired,
-  onResponse: React.PropTypes.func.isRequired,
+  terms: PropTypes.string.isRequired,
+  onResponse: PropTypes.func.isRequired,
 };
