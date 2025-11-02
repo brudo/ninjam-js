@@ -13,6 +13,12 @@ function createWindow() {
     width: 800,
     height: 715,
     icon: path.resolve(path.join(__dirname, 'img/icon-128.png')),
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+      // Note: nodeIntegration is required for this app's architecture
+      // as it uses Node.js net module in renderer process
+    }
   };
   mainWindow = new BrowserWindow(windowOptions);
 
